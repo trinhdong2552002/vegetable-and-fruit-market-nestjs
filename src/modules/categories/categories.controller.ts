@@ -34,8 +34,8 @@ export class CategoriesController {
 
   // PUT localhost:3000/categories/1
   @Put(':id')
-  update(@Param('id') id: string, @Body() body: any) {
-    return this.categoriesService.update(id, body);
+  async update(@Param('id') id: string, @Body() body: any) {
+    return await this.categoriesService.update(id, body);
   }
 
   // DELETE localhost:3000/categories/1
