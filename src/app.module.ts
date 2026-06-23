@@ -1,6 +1,6 @@
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Module } from '@nestjs/common';
-import { CategoriesModule } from './modules/categories/categories.module';
+import { CategoryModule } from './modules/category/category.module';
 
 // The AppModule is the root module of the application
 @Module({
@@ -9,14 +9,14 @@ import { CategoriesModule } from './modules/categories/categories.module';
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: 'localhost',
-      port: 5433,
-      username: 'postgres',
+      port: 5432,
+      username: 'trinhdong255',
       password: '123456',
       database: 'vegetable_and_fruit_market_db',
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: true,
     }),
-    CategoriesModule,
+    CategoryModule,
   ],
   // All the controllers and providers are registered here
   controllers: [],

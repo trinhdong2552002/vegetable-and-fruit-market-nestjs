@@ -1,13 +1,13 @@
 import { ApiProperty } from '@nestjs/swagger';
-import { Column, Entity, PrimaryColumn } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
-@Entity({ name: 'categories' })
+@Entity({ name: 'category' })
 export class Category {
   @ApiProperty({
-    example: '1',
+    example: '1d23f456-7890-1234-5678-90abcdef1234',
     description: 'The unique identifier of the category',
   })
-  @PrimaryColumn()
+  @PrimaryGeneratedColumn('uuid')
   id: string;
 
   @ApiProperty({
