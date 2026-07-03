@@ -8,6 +8,7 @@ import {
   Put,
 } from '@nestjs/common';
 import { CategoryService } from './category.service';
+import { CategoryDto } from './dto/category.dto';
 
 @Controller('category')
 export class CategoryController {
@@ -15,28 +16,26 @@ export class CategoryController {
 
   @Get()
   getAll() {
-    return this.categoryService.findAll();
+    return this.categoryService.getAllCategories();
   }
 
   @Get(':id')
   getOne(@Param('id') id: string) {
-    return this.categoryService.findOne(id);
+    return this.categoryService.getOneCategory(id);
   }
 
   @Post()
-  create(@Body() body: any) {
-    // We use 'any' for now, but usually we use a DTO (Data Transfer Object)
-    return this.categoryService.create(body);
+  async createCategory(@Body() data: CategoryDto) {
+    return await this.categoryService.createCategory(data);
   }
 
   @Put(':id')
-  async update(@Param('id') id: string, @Body() body: any) {
-    await this.categoryService.update(id, body);
-    return this.categoryService.findOne(id);
+  async updateCategory(@Param(':id') id: string, @Body() data: CategoryDto) {
+    return await this.categoryService.updateCategory(id, data);
   }
 
   @Delete(':id')
-  delete(@Param('id') id: string) {
-    return this.categoryService.delete(id);
+  async deleteCategory(@Param(':id') id: string) {
+    return await this.categoryService.deleteCategory(id);
   }
 }
