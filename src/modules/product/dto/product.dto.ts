@@ -33,6 +33,6 @@ export class ProductDto {
   @IsBoolean()
   isActive: boolean;
 
-  //   @IsString()
-  //   category_id: string;
+  @IsString()
+  categoryId: string;
 }
