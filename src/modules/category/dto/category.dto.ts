@@ -1,9 +1,10 @@
-import { IsEmpty, IsString } from 'class-validator';
+import { IsNotEmpty, IsString } from 'class-validator';
 
 export class CategoryDto {
-  id: string;
+  // No need to find category id because the class-validator will auto it
+  // id: string;
 
-  @IsEmpty()
+  @IsNotEmpty({ message: 'Name cannot be empty.' })
   @IsString({
     message: 'Name must be a string',
   })
@@ -12,5 +13,11 @@ export class CategoryDto {
   @IsString({
     message: 'Description must be a string',
   })
-  description?: string;
+  description: string;
+
+  @IsNotEmpty({ message: 'ImageUrl cannot be empty.' })
+  @IsString({
+    message: 'ImageUrl must be a string',
+  })
+  imageUrl: string;
 }
