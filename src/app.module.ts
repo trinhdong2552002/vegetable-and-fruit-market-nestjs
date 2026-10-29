@@ -2,6 +2,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { Module } from '@nestjs/common';
 import { CategoryModule } from './modules/category/category.module';
 import { ProductModule } from './modules/product/product.module';
+import { UserModule } from './modules/user/user.module';
 
 // The AppModule is the root module of the application
 @Module({
@@ -19,6 +20,7 @@ import { ProductModule } from './modules/product/product.module';
     }),
     CategoryModule,
     ProductModule,
+    UserModule,
   ],
   // All the controllers and providers are registered here
   controllers: [],
